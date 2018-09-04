@@ -1,0 +1,15 @@
+adb -s emulator-5554 logcat | grep --line-buffered 'test' > output5554.txt
+adb -s emulator-5556 logcat | grep --line-buffered 'test' > output5556.txt
+adb -s emulator-5558 logcat | grep --line-buffered 'test' > output5558.txt
+adb -s emulator-5560 logcat | grep --line-buffered 'test' > output5560.txt
+adb -s emulator-5562 logcat | grep --line-buffered 'test' > output5562.txt
+
+t=1
+for ((n=0;n<10;n++)); 
+do 
+./simpledynamo-grading.linux /home/rv/Documents/android_projects/SimpleDynamo/app/build/outputs/apk/app-debug.apk
+c=$(($n+$t))
+d=' runs of grading script completed'
+a="$c$d"
+echo $a
+done
